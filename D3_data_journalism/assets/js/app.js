@@ -108,7 +108,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
                     .attr("class", "d3-tip")
                     .offset([-4, 0])
                     .html(function(d){
-                        return (`${d.state}<br>${chosenXAxis}: ${d[chosenXAxis]}<br>${chosenYAxis}: ${d[chosenYAxis]}`);
+                        if (chosenXAxis === "income"){
+                            return (`${d.state}<br>${chosenXAxis}: ${d[chosenXAxis]} USD<br>${chosenYAxis}: ${d[chosenYAxis]}%`); 
+                          } 
+                          else if (chosenXAxis === "age"){
+                            return (`${d.state}<br>${chosenXAxis}: ${d[chosenXAxis]}<br>${chosenYAxis}: ${d[chosenYAxis]}%`); 
+                          }    
+                          else {
+                            return (`${d.state}<br>${chosenXAxis}: ${d[chosenXAxis]}%<br>${chosenYAxis}: ${d[chosenYAxis]}%`); 
+                          }
                     });
 
 
